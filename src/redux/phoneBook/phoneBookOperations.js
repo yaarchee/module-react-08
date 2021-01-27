@@ -1,40 +1,16 @@
 import axios from 'axios';
-import {
-  addContactSuccess,
-  addContactRequest,
-  fetchContactsSuccess,
-  fetchContactsRequest,
-  fetchContactsError,
-  addContactError,
-  deleteContactRequest,
-  deleteContactSuccess,
-  deleteContactError,
-} from './phoneBookActions';
+// import {
+//   addContactSuccess,
+//   addContactRequest,
+//   fetchContactsSuccess,
+//   fetchContactsRequest,
+//   fetchContactsError,
+//   addContactError,
+//   deleteContactRequest,
+//   deleteContactSuccess,
+//   deleteContactError,
+// } from './phoneBookActions';
 import { createAsyncThunk } from '@reduxjs/toolkit';
-
-// const addContact = (name, number) => async (dispatch) => {
-//   dispatch(addContactRequest());
-//   try {
-//     const contact = {
-//       name,
-//       number,
-//     };
-//
-//     await axios.post('/contacts', contact).then(({ data }) => {
-//       dispatch(addContactSuccess(data));
-//     });
-//   } catch (e) {
-//     dispatch(addContactError(e));
-//   }
-// };
-
-// const deleteContact = (id) => async (dispatch) => {
-//   dispatch(deleteContactRequest());
-//   await axios
-//     .delete(`/contacts/${id}`)
-//     .then(dispatch(deleteContactSuccess(id)))
-//     .catch((e) => dispatch(deleteContactError(e)));
-// };
 
 const deleteContact = createAsyncThunk(
   'contacts/deleteContact',
@@ -64,17 +40,6 @@ const addContact = createAsyncThunk(
   }
 );
 
-// const getAllContacts = () => async (dispatch) => {
-//   dispatch(fetchContactsRequest());
-//   try {
-//     await axios
-//       .get('/contacts')
-//       .then(({ data }) => dispatch(fetchContactsSuccess(data)));
-//   } catch (e) {
-//     dispatch(fetchContactsError(e));
-//   }
-// };
-
 const getAllContacts = createAsyncThunk(
   'contacts/getAllContacts',
   async (_, { rejectWithValue }) => {
@@ -97,5 +62,40 @@ const getAllContacts = createAsyncThunk(
 //       }
 //     },
 // );
+
+// const addContact = (name, number) => async (dispatch) => {
+//   dispatch(addContactRequest());
+//   try {
+//     const contact = {
+//       name,
+//       number,
+//     };
+//
+//     await axios.post('/contacts', contact).then(({ data }) => {
+//       dispatch(addContactSuccess(data));
+//     });
+//   } catch (e) {
+//     dispatch(addContactError(e));
+//   }
+// };
+
+// const deleteContact = (id) => async (dispatch) => {
+//   dispatch(deleteContactRequest());
+//   await axios
+//     .delete(`/contacts/${id}`)
+//     .then(dispatch(deleteContactSuccess(id)))
+//     .catch((e) => dispatch(deleteContactError(e)));
+// };
+
+// const getAllContacts = () => async (dispatch) => {
+//   dispatch(fetchContactsRequest());
+//   try {
+//     await axios
+//       .get('/contacts')
+//       .then(({ data }) => dispatch(fetchContactsSuccess(data)));
+//   } catch (e) {
+//     dispatch(fetchContactsError(e));
+//   }
+// };
 
 export default { addContact, deleteContact, getAllContacts };

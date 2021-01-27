@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import ListItem from './ListItem/ListItem';
 import styles from './ContactList.module.css';
 import { useSelector, useDispatch } from 'react-redux';

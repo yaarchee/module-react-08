@@ -41,6 +41,14 @@ export default function App() {
           <Registration />
         </PublicRoute>
 
+        <PublicRoute
+          path={routers.logIn}
+          redirectTo={routers.phoneBook}
+          restricted
+        >
+          <LogIn />
+        </PublicRoute>
+
         {/*<PublicRoute*/}
         {/*  path={routers.registration}*/}
         {/*  component={Registration}*/}
@@ -48,20 +56,16 @@ export default function App() {
         {/*  restricted*/}
         {/*/>*/}
 
-        <PublicRoute
-          path={routers.logIn}
-          component={LogIn}
-          redirectTo={routers.phoneBook}
-          restricted
-        />
+        {/*<PublicRoute*/}
+        {/*  path={routers.logIn}*/}
+        {/*  component={LogIn}*/}
+        {/*  redirectTo={routers.phoneBook}*/}
+        {/*  restricted*/}
+        {/*/>*/}
 
         {/*<Route path={routers.registration} exact>*/}
         {/*  <Registration />*/}
         {/*</Route>*/}
-
-        {/*<PublicRoute path={routers.logIn} redirectTo={routers.phoneBook}>*/}
-        {/*  <LogIn />*/}
-        {/*</PublicRoute>*/}
 
         {/*<Route path={routers.logIn} exact>*/}
         {/*  <LogIn />*/}

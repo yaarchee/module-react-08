@@ -24,7 +24,7 @@ function UserMenu() {
   return (
     <div style={styles.container}>
       <img src={defaultAvatar} alt="" width="32" style={styles.avatar} />
-      <span style={styles.name}>Welcome, {user.name}</span>
+      <span style={styles.name}>Welcome, {user?.name}</span>
       <button type="button" onClick={() => dispatch(authOperations.logOut())}>
         Logout
       </button>

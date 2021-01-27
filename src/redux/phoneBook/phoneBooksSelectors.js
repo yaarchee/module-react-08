@@ -1,6 +1,6 @@
 import { createSelector } from 'reselect';
 
-export const getContacts = ({ phoneBook: { contact } }) => contact;
+export const getContacts = ({ phoneBook: { contact } }) => contact.contacts;
 export const getFilterQuery = ({ phoneBook: { filter } }) => filter;
 
 export const getFilteredContacts = createSelector(

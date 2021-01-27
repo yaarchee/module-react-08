@@ -3,8 +3,8 @@
 import { configureStore, getDefaultMiddleware } from '@reduxjs/toolkit';
 import logger from 'redux-logger';
 // import counterReducer from './counter/counterReducer';
-import phoneBookReducer from './phoneBook/phoneBookReducer';
-import authReducer from './auth/authReducer';
+import phoneBookSlice from './phoneBook/phoneBookSlice';
+import authReducer from './auth/authSlice';
 import {
   persistStore,
   persistReducer,
@@ -28,7 +28,7 @@ const authPersistConfig = {
 const store = configureStore({
   reducer: {
     auth: persistReducer(authPersistConfig, authReducer),
-    phoneBook: phoneBookReducer,
+    phoneBook: phoneBookSlice,
   },
   // eslint-disable-next-line no-process-env
   devTools: process.env.NODE_ENV === 'development',
