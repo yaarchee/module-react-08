@@ -20,6 +20,7 @@ const initialState = {
   user: { name: null, mail: null },
   token: null,
   isAuth: false,
+  isRefreshing: false,
 };
 
 function setData(state, action) {
@@ -38,6 +39,7 @@ function refreshUser(state, action) {
   console.log(action.payload);
   state.user = action.payload;
   state.isAuth = true;
+  state.isRefreshing = false;
   console.log(' after refreshUser' + state.user);
 }
 
@@ -63,6 +65,9 @@ const userSlice = createSlice({
 
     [authOperations.getCurrentUser.fulfilled](state, action) {
       refreshUser(state, action);
+    },
+    [authOperations.getCurrentUser.pending](state) {
+      state.isRefreshing = true;
     },
   },
 });
