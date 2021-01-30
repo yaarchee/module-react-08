@@ -69,6 +69,9 @@ const userSlice = createSlice({
     [authOperations.getCurrentUser.pending](state) {
       state.isRefreshing = true;
     },
+    [authOperations.getCurrentUser.rejected](state) {
+      state.isRefreshing = false;
+    },
   },
 });
 
